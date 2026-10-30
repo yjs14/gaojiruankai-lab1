@@ -29,6 +29,7 @@ export abstract class Shape {
   protected styleDetails(): string {
     return [...this.styles].map(([key, value]) => key + '=' + value).join(' ');
   }
+  get acceptsText(): boolean { return false; }
   get content(): string { return ''; }
   static number(value: string | number, name: string): number {
     if (String(value).trim() === '' || !/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/u.test(String(value))) throw new Error('invalid number for ' + name);

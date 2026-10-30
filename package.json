@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "cli": "node dist/src/main.js",
-    "test": "npm run build && node --test dist/test/*.test.js",
+    "test": "tsc -p tsconfig.json && node --test dist/test/*.test.js",
     "check": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
