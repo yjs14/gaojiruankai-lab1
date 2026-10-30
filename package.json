@@ -1,0 +1,23 @@
+{
+  "name": "svg-editor-cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "cli": "node dist/src/main.js",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "check": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "sax": "1.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "@types/sax": "1.2.7",
+    "typescript": "5.7.3"
+  }
+}
