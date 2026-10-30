@@ -1,0 +1,6 @@
+import { NumericShape } from './NumericShape.js';
+export class Line extends NumericShape {
+  override get kind(): string { return 'line'; }
+  constructor(id: string, x1: number, y1: number, x2: number, y2: number) { super(id, { x1, y1, x2, y2 }, [["x1","y1"],["x2","y2"]], []); }
+  override clone(): Line { const copy = new Line(this.id, this.value('x1'), this.value('y1'), this.value('x2'), this.value('y2')); this.copyStyles(copy); return copy; }
+}
