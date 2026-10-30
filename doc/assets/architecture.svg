@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="660" viewBox="0 0 1120 660">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0L9 3L0 6" fill="none" stroke="#334155"/></marker></defs>
+<rect width="1120" height="660" fill="#f8fafc"/>
+<g font-family="Arial, sans-serif" fill="#0f172a"><text x="40" y="40" font-size="23" font-weight="700">SVG Editor CLI — Phase 1</text><text x="40" y="66" font-size="14" fill="#64748b">Component diagram · arrows point toward dependencies</text></g>
+<g stroke="#334155" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+<path d="M280 140H390"/><path d="M160 180V296H390"/><path d="M140 180V495"/>
+<path d="M535 180V240"/><path d="M680 140H940V240"/>
+<path d="M680 296H800"/><path d="M535 350V490"/>
+<path d="M680 545H940V370"/><path d="M300 545H390"/>
+<path d="M300 520H345V402H825V370"/>
+</g>
+<g font-family="Arial, sans-serif" fill="#0f172a">
+<g><rect x="40" y="100" width="240" height="80" rx="5" fill="#e0f2fe" stroke="#0369a1"/><text x="60" y="128" font-size="18" font-weight="700">main.ts</text><text x="60" y="153" font-size="14">Composition Root</text></g>
+<g><rect x="390" y="100" width="290" height="80" rx="5" fill="#e0f2fe" stroke="#0369a1"/><text x="410" y="128" font-size="18" font-weight="700">cli</text><text x="410" y="150" font-size="13">Repl · Tokenizer · CommandRouter</text><text x="410" y="169" font-size="13">TreePrinter</text></g>
+<g><rect x="390" y="240" width="290" height="110" rx="5" fill="#ede9fe" stroke="#7c3aed"/><text x="410" y="268" font-size="18" font-weight="700">application</text><text x="410" y="293" font-size="14">Editor · Command · EditRecord</text><text x="410" y="316" font-size="14">History · commands/</text><text x="410" y="336" font-size="12" fill="#64748b">transaction + undo/redo policy</text></g>
+<g><rect x="800" y="240" width="280" height="130" rx="5" fill="#dcfce7" stroke="#15803d"/><text x="820" y="268" font-size="18" font-weight="700">domain</text><text x="820" y="293" font-size="13">Document · Shape · NumericShape</text><text x="820" y="314" font-size="13">Rect · Circle · Ellipse · Line</text><text x="820" y="335" font-size="13">Text · Group · ShapeFactory</text><text x="820" y="356" font-size="12" fill="#64748b">no filesystem / terminal dependencies</text></g>
+<g><rect x="40" y="495" width="260" height="110" rx="5" fill="#ffedd5" stroke="#c2410c"/><text x="60" y="523" font-size="18" font-weight="700">infrastructure</text><text x="60" y="548" font-size="13">NodeFileStore · SvgCodec</text><text x="60" y="571" font-size="13">SvgElement · Transform</text><text x="60" y="593" font-size="12" fill="#64748b">Node filesystem / SAX XML</text></g>
+<g><rect x="390" y="490" width="290" height="110" rx="5" fill="#fef9c3" stroke="#a16207"/><text x="410" y="518" font-size="18" font-weight="700">ports</text><text x="410" y="545" font-size="14">FileStore</text><text x="410" y="569" font-size="14">DocumentCodec</text><text x="410" y="591" font-size="12" fill="#64748b">interfaces used by application</text></g>
+<text x="315" y="533" font-size="11" fill="#64748b">implements</text>
+<text x="40" y="640" font-size="12" fill="#64748b">Source: doc/architecture.puml · test/architecture.test.ts checks the actual import directions.</text>
+</g></svg>

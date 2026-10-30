@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtemp, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
 import { Fixture } from './Fixture.js';
 import { SvgCodec } from '../src/infrastructure/SvgCodec.js';
 import { NodeFileStore } from '../src/infrastructure/NodeFileStore.js';
@@ -43,5 +43,5 @@ for(const source of [
 test('real file adapter overwrites atomically and reports read/write errors',async()=>{
   const directory=await mkdtemp(join(tmpdir(),'svg-lab-test-'));const store=new NodeFileStore();
   try {const path=join(directory,'图 file.svg');await store.write(path,'first');await store.write(path,'second');assert.equal(await store.read(path),'second');assert.equal(await readFile(path,'utf8'),'second');await assert.rejects(store.read(join(directory,'missing.svg')),/cannot read file/u);await assert.rejects(store.write(join(directory,'missing','a.svg'),'x'),/cannot write file/u);}
-  finally {await rm(directory,{recursive:true,force:true});}
+  finally {assert.equal(dirname(directory), tmpdir()); await rm(directory,{recursive:true,force:true});}
 });

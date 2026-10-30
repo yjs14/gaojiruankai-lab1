@@ -1,0 +1,21 @@
+@startuml
+skinparam componentStyle rectangle
+skinparam shadowing false
+title SVG Editor CLI — Phase 1 Component Diagram
+component "main.ts\nComposition Root" as Main
+component "cli\nRepl / Tokenizer / CommandRouter / TreePrinter" as CLI
+component "application\nEditor / Command / EditRecord / History" as App
+component "domain\nDocument / Shape / NumericShape\nRect / Circle / Ellipse / Line / Text / Group\nShapeFactory" as Domain
+component "ports\nFileStore / DocumentCodec" as Ports
+component "infrastructure\nNodeFileStore / SvgCodec / SvgElement / Transform" as Infra
+Main --> CLI
+Main --> App
+Main --> Infra
+CLI --> App
+CLI --> Domain
+App --> Domain
+App --> Ports
+Ports --> Domain
+Infra --> Ports : implements
+Infra --> Domain
+@enduml
